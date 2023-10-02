@@ -1,1 +1,24 @@
+@use '@angular/material' as mat;
+
+@tailwind base;
+@layer base {
+  a {
+    @apply text-blue-600 underline;
+  }
+
+  a:hover {
+    @apply text-blue-500;
+  }
+}
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  //background-color: #fffef3;
+  //background-color: #c4e5c1;
+}
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+

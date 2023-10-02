@@ -1,0 +1,4 @@
+<ng-container *ngIf="pokemonData$ | async as data">
+  <h2>{{ data.name }}</h2>
+  <p>{{ data.japanese_name }}</p>
+</ng-container>

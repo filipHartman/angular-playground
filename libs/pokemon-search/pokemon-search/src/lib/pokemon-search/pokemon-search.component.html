@@ -1,0 +1,25 @@
+<div class="flex gap-4">
+  <div class="flex flex-col w-1/3">
+    <label for="search">Pokémon Search</label>
+    <input
+      id="search"
+      [formControl]="searchControl"
+      class="border-blue-800 border-2 w-3/4 leading-[2.5rem]"
+    />
+    <p>Searching for ... {{ searchControl.value }}</p>
+    <ul>
+      <li *ngFor="let data of pokemonIdentifiers$ | async">
+        <a
+          [routerLink]="data.id"
+          [queryParams]="{ name: searchControl.value }"
+          >{{ data.name }}</a
+        >
+      </li>
+    </ul>
+  </div>
+  <div class="w-2/3">
+    <router-outlet></router-outlet>
+  </div>
+</div>
+
+<a routerLink="10">Link do pokemon data</a>

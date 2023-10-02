@@ -1,0 +1,63 @@
+@use './../../styles/border-gradient' as bg;
+
+$border: 2px;
+.base {
+  cursor: pointer;
+  font-size: 12px;
+  line-height: 1.5;
+  display: inline-flex;
+  position: relative;
+  border-radius: 1rem;
+  padding: 0.25rem 0.5rem;
+  transition: background-color 0.2s ease, color 0.2s ease;
+  column-gap: 0.5rem;
+  align-items: center;
+  background-clip: padding-box;
+  text-wrap: nowrap;
+  min-width: max-content;
+}
+
+.badge-default {
+  color: #142d4c;
+  background-color: #ececec;
+  border: 2px solid #142d4c;
+  &.active-badge {
+   background-color: #385170;
+    color: #9fd3c7;
+  }
+}
+.badge-ai {
+  background-color: #e7eaf6;
+  color: #38598b;
+  @include bg.border-gradient(#a2a8d3, #113f67, $border);
+  &.active-badge {
+    background-image: linear-gradient(
+                    to right,
+                    rgba(162, 168, 211, 0.2),
+                    rgba(17, 63, 103, 0.2)
+    );
+  }
+}
+
+.icon {
+  width: 10px;
+  height: 10px;
+  display: inline;
+  line-height: 1;
+}
+//.badge {
+//  @include bg.border-gradient(green, blue, $border);
+//  color: #000;
+//  background: #fff;
+//  background-clip: padding-box;
+//  border: solid $border transparent;
+//}
+
+//.active-badge {
+//  background-image: linear-gradient(
+//    to right,
+//    rgba(9, 121, 35, 0.3),
+//    rgba(33, 0, 255, 0.3)
+//  );
+//  color: white;
+//}

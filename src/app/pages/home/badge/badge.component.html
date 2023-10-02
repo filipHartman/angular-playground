@@ -1,0 +1,16 @@
+<div
+  [id]="id"
+  [appActivable]="activeClassName"
+  (activeChange)="onActiveChange($event)"
+  class="base {{ themeClass }}"
+>
+  <img
+    *ngIf="themeClass === 'badge-ai'"
+    class="icon"
+    src="assets/icons/github.svg"
+  />
+  <span appBadgeValue>
+    <ng-content></ng-content>
+  </span>
+  <button *ngIf="removable" appRemoveBadge (click)="onRemove()">X</button>
+</div>

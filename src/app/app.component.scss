@@ -1,0 +1,56 @@
+:host {
+  display: flex;
+}
+
+
+//$social-icon-length: 2rem;
+//$shadow: 0px 8px 30px -5px rgba(79, 79, 79, 0.3);
+//
+//.social-links,
+//.login-container {
+//  display: flex;
+//  justify-content: center;
+//
+//  & a {
+//    background-color: white;
+//    border-radius: 20px;
+//    padding: 15px;
+//    margin: 0 0.5rem;
+//  }
+//}
+//
+//.title-container {
+//  display: flex;
+//}
+//
+//.title {
+//  border-radius: 50px;
+//  margin-left: auto;
+//  margin-right: auto;
+//  background: white;
+//  text-align: center;
+//  padding: 30px 50px;
+//  box-shadow: $shadow;
+//}
+//
+//.social-icon {
+//  width: $social-icon-length;
+//  height: $social-icon-length;
+//}
+//
+//@media screen and (max-width: 768px) {
+//  header {
+//    flex-wrap: wrap;
+//  }
+//  .social-links,
+//  .login-container {
+//    order: 1;
+//    flex: 1;
+//    margin-top: 1rem;
+//  }
+//
+//  .title-container {
+//    order: 0;
+//    width: 100%;
+//  }
+//}

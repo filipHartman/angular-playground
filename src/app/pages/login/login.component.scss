@@ -1,0 +1,18 @@
+.input-container {
+  display: grid;
+  grid-template-columns: 100px 1fr;
+  grid-gap: 1rem;
+  font-size: 1.125rem;
+  align-items: center;
+  & input {
+    background: white;
+    height: 50px;
+    border: none;
+    border-radius: 10px;
+    border-bottom: 5px;
+    width: 100%;
+    min-width: 150px;
+    display: block;
+    padding-left: 10px;
+  }
+}

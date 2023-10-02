@@ -1,0 +1,9 @@
+<div class="flex gap-2 flex-wrap items-center">
+  <app-badge
+    *ngFor="let data of badges"
+    [theme]="data.theme"
+    [removable]="data.removable"
+    (badgeChange)="onBadgeChange($event)"
+    >{{ data.value }}</app-badge
+  >
+</div>

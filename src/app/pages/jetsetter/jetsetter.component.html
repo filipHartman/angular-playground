@@ -1,0 +1,53 @@
+<form class="flex w-full gap-2 items-end" (ngSubmit)="newItemSubmit()">
+    <div class="w-full flex flex-col">
+        <label for="new-item-input" class="text-blue-800">Item</label>
+        <input id="new-item-input" type="text" class="border-blue-800 border-2 w-3/4 leading-[2.5rem]"
+               [formControl]="newItemControl"/>
+    </div>
+    <button class="block w-1/4 border-blue-800 border-2 py-2 px-4 bg-accent text-white" type="submit">Add Item</button>
+</form>
+<div class="flex flex-col">
+    <label for="filter-input" class="text-blue-800">Filter</label>
+    <input id="filter-input" type="text" class="border-blue-800 border-2 leading-[2.5rem]"/>
+</div>
+<section class="flex my-8 gap-8">
+    <section>
+        <h2>Unpacked</h2>
+        <ng-container *ngIf="(unpackedItems$ | async) as unpackedItems">
+            <ul *ngIf="unpackedItems.length > 0; else noItemsTemplate">
+                <li *ngFor="let item of unpackedItems">
+                    <ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
+                    </ng-container>
+                </li>
+            </ul>
+        </ng-container>
+    </section>
+    <section>
+        <h2>Packed</h2>
+        <ng-container *ngIf="(packedItems$ | async) as packedItems">
+            <ul *ngIf="packedItems.length > 0; else noItemsTemplate">
+                <li *ngFor="let item of packedItems$ | async">
+                    <ng-container [ngTemplateOutlet]="itemTemplate" [ngTemplateOutletContext]="{item: item}">
+                    </ng-container>
+                </li>
+            </ul>
+        </ng-container>
+    </section>
+</section>
+<footer class="block">
+    <button type="button" (click)="unpackAll()" class="border-blue-800 border-2 py-2 px-4 bg-accent text-white mr-2">
+        Mark All as Unpacked
+    </button>
+    <button type="button" (click)="removeAll()" class="border-blue-800 border-2 py-2 px-4 bg-accent text-white">Remove
+        All
+    </button>
+</footer>
+
+<ng-template #itemTemplate let-item="item">
+    <input type="checkbox" [id]="item.id" (change)="toggleItem(item.id)" [checked]="item.packed"/><label
+        [for]="item.id" class="text-blue-800 ml-2 font-semibold">{{item.name}}</label>
+    <button type="button" (click)="removeItem(item.id)" class="ml-2 text-red-600 text-sm">Remove</button>
+</ng-template>
+<ng-template #noItemsTemplate>
+    <p>No items in the list</p>
+</ng-template>
